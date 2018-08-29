@@ -1,0 +1,274 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- <link rel="icon" href="../../../../favicon.ico"> -->
+
+  <title>展架控制</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./boostrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="./boostrap/css/album.css" rel="stylesheet">
+
+  <link href="./css/w3c_switch.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          展架控制
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">展架功能控制</h1>
+        <br/>
+        <p class="lead text-muted"></p>
+        <div class="row">
+          <div class="col-sm">
+            <img src="./images/shower.svg" style="width:150px; height: 150px;">
+            <div style="margin-top: 20px;">
+              <label class="switch">
+                <input type="checkbox" id="sprinkling" class="btn_switch">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+          <div class="col-sm">
+            <img src="./images/droplet-of-water.svg" style="width:150px; height: 150px;">
+            <div style="margin-top: 20px;">
+              <label class="switch">
+                <input type="checkbox" id="lamp" class="btn_switch">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+          <div class="col-sm">
+            <img src="./images/led-lamp.svg" style="width:150px; height: 150px;">
+            <div style="margin-top: 20px;">
+              <label class="switch">
+                <input type="checkbox" id="drip" class="btn_switch">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+              <canvas id="chart_temperatures" class="card-img-top"></canvas>
+              <div class="card-body">
+                <p class="card-text">
+                  <h3>目前氣溫 : <span style="color:rgb(18, 101, 235);"><span id="temperatures"></span> &#x2103;</span></h3>
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+              <canvas id="chart_humidity" class="card-img-top"></canvas>
+              <div class="card-body">
+                <p class="card-text">
+                  <h3>目前濕度 : <span style="color:rgb(18, 101, 235);"><span id="humidity"></span> %</span></h3>
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+              <canvas id="chart_atmosphericPressure" class="card-img-top"></canvas>
+              <div class="card-body">
+                <p class="card-text">
+                  <h3>目前大氣壓力 : <span style="color:rgb(18, 101, 235);"><span id="atmosphericPressure"></span> 帕</span></h3>
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+              <canvas id="chart_altitude" class="card-img-top"></canvas>
+              <div class="card-body">
+                <p class="card-text">
+                  <h3>海拔高度 : <span style="color:rgb(18, 101, 235);"><span id="altitude"></span> 公尺</span></h3>
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+              <canvas id="chart_lightSensor" class="card-img-top"></canvas>
+              <div class="card-body">
+                <p class="card-text">
+                  <h3>光感測器數值 : <span style="color:rgb(18, 101, 235);"><span id="lightSensor"></span></span></h3>
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+              <canvas id="chart_moisture" class="card-img-top"></canvas>
+              <div class="card-body">
+                <p class="card-text">
+                  <h3>土壤濕度 : <span id="moisture" style="color:rgb(18, 101, 235);"></span></h3>
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p>
+        IoTtalk v1 展架 | 2018.08.29 By 陳立献 (<a href="mailto:b0543017@ems.niu.edu.tw">b0543017@ems.<b>niu.edu.tw</b></a>) <br/>
+        程式碼修改自IoTtalk SwitchSetJS。<br/>
+      </p>
+      <div>
+        Icons made by <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a> from <a href="https://www.flaticon.com/"
+          title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+          target="_blank">CC 3.0 BY</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="js/jquery.js"></script>
+  <script src="./boostrap/js/popper.min.js"></script>
+  <script src="./boostrap/js/bootstrap.min.js"></script>
+  <script src="./boostrap/js/holder.min.js"></script>
+
+  <!-- Chart JS -->
+  <script src="js/moment-with-locales.js"></script>
+  <script src="./js/Chart.min.js"></script>
+  <script src="./js/load_charts.js"></script>
+
+  <!-- IoT Talk -->
+  <script src="js/iottalk/csmapi.js"></script>
+  <script src="js/iottalk/demo_frame.js"></script>
+
+  <script>
+    var charts = {
+      "chartTemperatures": {
+        obj: CustomChartLoader.loadTemperatureChart("chart_temperatures"),
+        name: "temperatures",
+        data: 0
+      },
+      "chartHumidity": {
+        obj: CustomChartLoader.loadHumidityChart("chart_humidity"),
+        name: "humidity",
+        data: 0
+      },
+      "chartAtmosphericPressur": {
+        obj: CustomChartLoader.loadAtmosphericPressureChart("chart_atmosphericPressure"),
+        name: "atmosphericPressure",
+        data: 0
+      },
+      "chartAltitude": {
+        obj: CustomChartLoader.loadAltitudeChart("chart_altitude"),
+        name: "altitude",
+        data: 0
+      },
+      "chartLightSensor": {
+        obj: CustomChartLoader.loadLightSensorChart("chart_lightSensor"),
+        name: "lightSensor",
+        data: 0
+      },
+      "chartMoisture": {
+        obj: CustomChartLoader.loadMoistureChart("chart_moisture"),
+        name: "moisture",
+        data: 0
+      },
+    };
+
+    $(window).on('iotTalkUpdate', function (e) {
+      var arr = e.dataArr[0];
+      if (e.df_name == undefined) return;
+
+      var df_name = e.df_name;
+      var name = null;
+      var timestamp = null;
+      var data = null;
+
+      try {
+        name = charts[df_name].name;
+        timestamp = new Date(Date.parse(arr[0]));
+
+        data = arr[1][0];
+        $("#" + name).text(data);
+      } catch (e) {
+        console.log("Error!", e.df_name);
+      }
+
+      if (name != null) {
+        ChartToolKit.addData(charts[df_name].obj, timestamp, data);
+        charts[df_name].data++;
+        if (charts[df_name].data > 10) {
+          charts[df_name].data--;
+          ChartToolKit.shiftData(charts[df_name].obj);
+        }
+      }
+    });
+
+    $(".btn_switch").click(function () {
+      var val = ($(this).prop("checked")) ? 1 : 0;
+      csmapi.push('static_tano_demo_control', $(this).prop("id"), [val], function (e) {
+        if (!e) {
+          $(this).prop("checked", !$(this).prop("checked"));
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
