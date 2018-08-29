@@ -15,7 +15,6 @@ $(function(){
         'dm_name': 'Tano_Demo_Control',
         'd_name': device_id,
         'df_list': dfs['idf_list'].concat(dfs['odf_list']),
-        'd_name': 'static_tano_demo_control',
         'is_sim':false,
     }; 
 
