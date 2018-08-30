@@ -67,7 +67,7 @@ $(function(){
 
     function routinePull() {
         for(var i = 0; i < dfs["odf_list"].length; i++) {
-            csmapi.pull("static_tano_demo_control", dfs["odf_list"][i], function(arr, exception, df_name){
+            csmapi.pull(device_id, dfs["odf_list"][i], function(arr, exception, df_name){
                 if(!exception) {
                     var evt = $.Event('iotTalkUpdate');
                     evt.df_name = df_name;
